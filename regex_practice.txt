@@ -1,0 +1,52 @@
+content = '''TypeScript Regex Practice – Code and Output
+
+Corrected code (the first line should be "let s1", not "et s1"):
+
+let s1 = "automation";
+
+let s2 = s1.replace(/[aeiou]/gi, "");
+let s3 = s1.match(/[aeiou]/gi);
+let s4 = s1.match(/[^aeiou]/gi);
+let s5 = s1.match(/[^aeiou]/gi).join("");
+
+console.log(s2);       // Output: tmtn
+console.log(s3);       // Output: [ 'a', 'u', 'o', 'a', 'i', 'o' ]
+console.log(s3.length);// Output: 6
+console.log(s4);       // Output: [ 't', 'm', 't', 'n' ]
+console.log(s4.length);// Output: 4
+console.log(s5);       // Output: tmtn
+
+
+let newString = "myNameis1906Pru1312tha";
+
+let s6 = newString.match(/\\d/g);
+let s7 = newString.match(/\\d/g).join("");
+console.log(s6);       // Output: [ '1', '9', '0', '6', '1', '3', '1', '2' ]
+console.log(s7);       // Output: 19061312
+
+let s8 = newString.match(/\\D/g).join("");
+console.log(s8);       // Output: myNameisPrutha
+
+
+Console output in order:
+
+tmtn
+[ 'a', 'u', 'o', 'a', 'i', 'o' ]
+6
+[ 't', 'm', 't', 'n' ]
+4
+tmtn
+[ '1', '9', '0', '6', '1', '3', '1', '2' ]
+19061312
+myNameisPrutha
+
+Notes:
+- /[aeiou]/gi matches vowels, ignoring case; g finds all matches.
+- /[^aeiou]/gi matches characters that are NOT vowels. It keeps consonants and other non-vowel characters.
+- \\d matches a digit; \\D matches a non-digit.
+- match() can return null if there are no matches. In that case, calling .join() or .length directly would cause an error. For these particular strings, matches exist.
+'''
+path = "/mnt/data/regex_practice_outputs.txt"
+with open(path, "w", encoding="utf-8") as f:
+    f.write(content)
+print(path)
